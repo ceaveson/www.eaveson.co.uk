@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="text-center">
+  <h1>{% block title %}Code Every Day!{% endblock %}</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <p>
+My New Years resolution is to try and code every day even if just for 10 minutes. This site is a project I can work on as a part of trying to achieve my goal. Also it will track my progress. :)
+</p>
+<p>
+If the coding I do is for work then there will be little to no detail on what I've done that day. If it's a change to this site then this should be reflected on it's <a href="https://github.com/ceaveson/www.eaveson.co.uk">Github page</a>.
+</p>
+<hr>
+</p></div>    
+    </div>
+<div class="row">
+    <div class="col-4"><h4>1st January 2023</h4></div>
+    <div class="col-8">
+        This is the first day. Well started before midnight and coded into the new day. Started with some basic setup of the site including:
+        <ul>
+            <li>Setup hosting on Python Anywhere</li>
+            <li>Start simple Flask App with templates</li>
+            <li>Add Bootstrap for styling</li>
+        </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
