@@ -12,10 +12,6 @@ w_secret = os.environ['WEBHOOK_SECRET']
 def hello_world():
     return render_template("home.html")
 
-@app.route("/test")
-def test():
-    return w_secret
-
 def is_valid_signature(x_hub_signature, data, private_key):
     # x_hub_signature and data are from the webhook payload
     # private key is your webhook secret
@@ -66,8 +62,8 @@ def webhook():
                 payload=payload))
             abort(abort_code)
 
-        if payload['ref'] != 'refs/heads/master':
-            return json.dumps({'msg': 'Not master; ignoring'})
+        if payload['ref'] != 'refs/heads/main':
+            return json.dumps({'msg': 'Not main; ignoring'})
 
         repo = git.Repo('/home/Ceaveson/mysite/www.eaveson.co.uk')
         origin = repo.remotes.origin
