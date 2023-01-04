@@ -12,6 +12,10 @@ w_secret = os.environ['WEBHOOK_SECRET']
 def hello_world():
     return render_template("home.html")
 
+@app.route("/test")
+def test():
+    return w_secret
+
 def is_valid_signature(x_hub_signature, data, private_key):
     # x_hub_signature and data are from the webhook payload
     # private key is your webhook secret
