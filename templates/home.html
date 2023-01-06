@@ -21,6 +21,15 @@ If the coding I do is for work then there will be little to no detail on what I'
 </p></div>    
     </div>
     <div class="row">
+        <div class="col-4"><h4>6th January 2023</h4></div>
+        <div class="col-8">
+            On the website code on my computer i've now used flask-sqlalchemy and created a local sqlite3 database for the posts (will use MySQL in production). I also got this showing on a test page on the site and using the date function from yesterday to format the date how I wanted.<br><br>
+            The following is a screenshot of a couple of test entries
+            <img src="{{url_for('static', filename='img/test_posts_from_db_1.png')}}" style="width:500px;">
+            <br>
+        </div>
+        </div>
+    <div class="row">
         <div class="col-4"><h4>5th January 2023</h4></div>
         <div class="col-8">
             Eventually i'll add these daily entries into a database rather than onto a static HTML file. I'd like to also keep the date format as "5th January 2023" with the day suffix however it looks like the datetime library doesn't have this functionality so i've made a little function to do that for when I want to automate adding the date to each entry.<br>
