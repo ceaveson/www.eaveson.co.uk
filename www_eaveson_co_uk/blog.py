@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template
-from . import date_with_day_suffix
+from www_eaveson_co_uk.functions import date_with_day_suffix
 from www_eaveson_co_uk.database import db
 from datetime import datetime
 
