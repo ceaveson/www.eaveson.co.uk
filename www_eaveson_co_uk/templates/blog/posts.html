@@ -24,7 +24,7 @@ If the coding I do is for work then there will be little to no detail on what I'
     <div class="row">
         <div class="col-4"><h4>{{ post.pub_date_str }}</h4></div>
         <div class="col-8">
-            {{ post.body }}
+            {{ post.body | safe}}
             <br>
         </div>
         </div>
