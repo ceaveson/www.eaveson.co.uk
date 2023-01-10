@@ -23,6 +23,16 @@ If the coding I do is for work then there will be little to no detail on what I'
     <div class="row">
         <div class="col-4"><h4>9th January 2023</h4></div>
         <div class="col-8">
+            So i've decided on writting my posts in markdown as it's something i'd like to start making more use of anyway. I found <a href="https://www.digitalocean.com/community/tutorials/how-to-use-python-markdown-with-flask-and-sqlite">this</a> tutorial which I very loosly followed to add the support. So now I can create new posts from markdown on a very basic page:<br>
+            <img src="{{url_for('static', filename='img/add_new_post_md.png')}}" style="width:500px;"><br>
+            Submitting this saves the markdown text to a database. When a view is requested that has this content then the markdown stored in the database gets converted to html and added to the page:<br>
+            <img src="{{url_for('static', filename='img/md_post_example.png')}}" style="width:500px;"><br>
+            These example screenshots are from a test route so not actually how the real posts are actually stored. I'll convert them to markdown and add to the database for use in a later coding session. Also the bullet points are all numbered on the second screenshot where I would have expected the second lot to just be circles, so that is also something to look into.<br><br>
+        </div>
+        </div>
+    <div class="row">
+        <div class="col-4"><h4>9th January 2023</h4></div>
+        <div class="col-8">
             <p>I've now finished converting the site to a package and use blueprints which helps to organise the structure. I've made similar flask sites previously but it's funny how you forget how to do some things. One issue I had was with circular dependencies which <a href="https://stackoverflow.com/questions/22929839/circular-import-of-db-reference-using-flask-sqlalchemy-and-blueprints">this</a> Stack Overflow post was helpful with resolving.</p>
             <p>I need to do some thinking about how I'm going to add daily posts on a form for when I add entries to a database as i'd like it to be fairly easy to use and also still be able to upload and use pictures in the posts.</p>
         </div>
