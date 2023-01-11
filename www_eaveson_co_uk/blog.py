@@ -3,6 +3,7 @@ from www_eaveson_co_uk.functions import date_with_day_suffix
 from www_eaveson_co_uk.database import db
 from datetime import datetime
 import markdown
+from www_eaveson_co_uk.auth import login_required
 
 bp = Blueprint('blog', __name__)
 
@@ -29,6 +30,7 @@ def test():
     return render_template("blog/posts.html", posts = posts)
 
 @bp.route("/add", methods =('GET','POST'))
+@login_required
 def add():
     if request.method == 'POST':
         body = request.form['body']
