@@ -20,12 +20,17 @@ If the coding I do is for work then there will be little to no detail on what I'
 <hr>
 </p></div>    
     </div>
-    {% for post in posts %}
+    {% if g.user %}
+        <center><a href="{{ url_for('blog.add') }}">add post</a></center>
+    {% endif %}
+    {% for post in posts|reverse %}
     <div class="row">
-        <div class="col-4"><h4>{{ post.pub_date_str }}</h4></div>
+        <div class="col-4"><h4>{{ post.pub_date_str }}</h4><a href="#">edit</a></div>
         <div class="col-8">
             {{ post.body | safe}}
             <br>
+            <br>
+            <hr>
         </div>
         </div>
     {% endfor %}
