@@ -19,11 +19,7 @@ class Post(db.Model):
         return '<Post %r>' % self.id
 
 @bp.route("/")
-def index():
-    return render_template("blog/home.html")
-
-@bp.route("/test")
-def test():
+def posts():
     posts = Post.query.all()
     for post in posts:
         post.body = markdown.markdown(post.body)
@@ -38,7 +34,7 @@ def add():
         post = Post(body=body)
         db.session.add(post)
         db.session.commit()
-        return redirect(url_for('blog.test'))
+        return redirect(url_for('blog.posts'))
     return render_template('blog/add_post.html')
 
 @bp.route("/edit/<int:post_id>", methods = ('GET', 'POST'))
@@ -50,7 +46,7 @@ def edit(post_id):
         post.body = body
         db.session.add(post)
         db.session.commit()
-        return redirect(url_for('blog.test'))
+        return redirect(url_for('blog.posts'))
     post = Post.query.filter_by(id=post_id).first()
     return render_template('blog/edit.html', post=post)
 
@@ -60,4 +56,4 @@ def delete(post_id):
     post = Post.query.filter_by(id=post_id).first()
     db.session.delete(post)
     db.session.commit()
-    return redirect(url_for('blog.test'))
+    return redirect(url_for('blog.posts'))
