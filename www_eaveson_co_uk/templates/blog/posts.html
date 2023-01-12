@@ -25,14 +25,20 @@ If the coding I do is for work then there will be little to no detail on what I'
     {% endif %}
     {% for post in posts|reverse %}
     <div class="row">
-        <div class="col-4"><h4>{{ post.pub_date_str }}</h4><a href="#">edit</a></div>
+        <div class="col-4"><h4>{{ post.pub_date_str }}</h4><a href="{{ url_for('blog.edit', post_id = post.id) }}">edit</a> | <a href="#" onclick="delpost_{{post.id}}()">delete</a></div>
         <div class="col-8">
             {{ post.body | safe}}
-            <br>
-            <br>
-            <hr>
         </div>
         </div>
+        <script>
+            function delpost_{{post.id}}() {
+              let text = "Are you sure you want to delete this post?";
+              if (confirm(text) == true) {
+                window.open("{{ url_for('blog.delete', post_id = post.id) }}", "_self");
+      }
+            }
+            </script>
     {% endfor %}
     </div>
+
 {% endblock %}
