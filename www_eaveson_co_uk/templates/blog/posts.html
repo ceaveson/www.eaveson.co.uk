@@ -20,16 +20,16 @@ If the coding I do is for work then there will be little to no detail on what I'
 </p></div>    
     </div>
     {% if g.user %}
-        <center><a href="{{ url_for('blog.add') }}">add post</a></center>
+        <center><a href="{{ url_for('blog.add') }}">Add Post</a></center><br>
     {% endif %}
     {% for post in posts|reverse %}
     <div class="row">
-        <div class="col-4"><h4>{{ post.pub_date_str }}</h4>
+        <div class="col-3"><h4>{{ post.pub_date_str }}</h4>
             {% if g.user %}
-            <a href="{{ url_for('blog.edit', post_id = post.id) }}">edit</a> | <a href="#" onclick="delpost_{{post.id}}()">delete</a>{% endif %}</div>
-        <div class="col-8">
-            {{ post.body | safe}}
+            <a href="{{ url_for('blog.edit', post_id = post.id) }}">Edit</a> | <a href="#" onclick="delpost_{{post.id}}()">Delete</a>{% endif %}
         </div>
+        <div class="col-9">
+            {{ post.body | safe}}
         </div>
         {% if g.user %}
         <script>
@@ -37,10 +37,11 @@ If the coding I do is for work then there will be little to no detail on what I'
               let text = "Are you sure you want to delete this post?";
               if (confirm(text) == true) {
                 window.open("{{ url_for('blog.delete', post_id = post.id) }}", "_self");
-      }
-            }
+                    }
+                }
             </script>
         {% endif %}
+    </div>
     {% endfor %}
     </div>
 
