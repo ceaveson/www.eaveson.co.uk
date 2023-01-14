@@ -35,7 +35,7 @@ def add():
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('blog.posts'))
-    return render_template('blog/add_post.html')
+    return render_template('blog/edit.html')
 
 @bp.route("/edit/<int:post_id>", methods = ('GET', 'POST'))
 @login_required

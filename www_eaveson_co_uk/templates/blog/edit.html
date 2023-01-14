@@ -1,9 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Add a new Post {% endblock %}</h1>
+
+<div class="container-fluid text-center">
+    <h1>
+        {% block title %}
+            {% if post %}
+                Edit Post
+            {% else %}
+                Add a new Post
+            {% endif %}
+        {% endblock %}
+    </h1>
 
     <form method="post">
-        <textarea name="body" id="body" rows="20" cols="80">{{ post.body }}</textarea>
-        <input type="submit" value="Save">
+    <textarea name="body" id="body" rows="20" cols="80">{% if post %}{{ post.body }}{% endif %}</textarea>
+    <input type="submit" value="Save">
+</form>
+</div>
 {% endblock %}
