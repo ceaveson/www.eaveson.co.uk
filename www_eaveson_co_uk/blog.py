@@ -11,7 +11,7 @@ bp = Blueprint('blog', __name__)
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.Text, nullable=False)
-    live = db.column(db.Boolean)
+    live = db.Column(db.Boolean)
     pub_date = db.Column(db.DateTime, nullable=False,
         default=datetime.utcnow)
 
@@ -22,7 +22,7 @@ class Post(db.Model):
 def posts():
     posts = Post.query.all()
     for post in posts:
-        post.body = markdown.markdown(post.body)
+        post.body = markdown.markdown(post.body, extensions=['extra', 'codehilite'])
         post.pub_date_str = date_with_day_suffix(post.pub_date)
     return render_template("blog/posts.html", posts = posts)
 
