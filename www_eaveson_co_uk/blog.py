@@ -11,7 +11,6 @@ bp = Blueprint('blog', __name__)
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.Text, nullable=False)
-    live = db.Column(db.Boolean)
     pub_date = db.Column(db.DateTime, nullable=False,
         default=datetime.utcnow)
 
