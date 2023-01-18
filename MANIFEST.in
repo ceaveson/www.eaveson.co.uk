@@ -1,0 +1,4 @@
+include flaskr/schema.sql
+graft www_eaveson_co_uk/static
+graft www_eaveson_co_uk/templates
+global-exclude *.pyc
