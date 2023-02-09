@@ -20,7 +20,8 @@ def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
     app.config['SECRET_KEY'] = SECRET_KEY,
     app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URI
-    db.init_app(app) 
+    app.config['pool_pre_ping'] = True
+    db.init_app(app)
     
     @app.route('/update_server', methods=['POST'])
     def webhook():
