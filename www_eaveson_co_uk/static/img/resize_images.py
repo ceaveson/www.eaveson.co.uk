@@ -2,7 +2,7 @@ from PIL import Image
 from os import listdir
 
 def batch_resize(dir='.'):
-    images = [i for i in listdir(dir) if i[-4:] == '.jpg' or i[-4:] == '.png']
+    images = [i for i in listdir(dir) if i[-4:] == '.jpg' or i[-4:] == '.png' or i[-5:] == '.jpeg']
     for image in images:
         resize_img(image)
 
@@ -12,7 +12,6 @@ def resize_img(image_file):
     and height scaled to match.
     '''
     im = Image.open(image_file)
-    print(image_file)
     if im.size[0] > 500:
         height_diff = im.size[0]-500
         percent_smaller = height_diff/(im.size[0]/100)
