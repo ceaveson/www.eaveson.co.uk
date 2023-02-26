@@ -12,6 +12,7 @@ def resize_img(image_file):
     and height scaled to match.
     '''
     im = Image.open(image_file)
+    print(image_file)
     if im.size[0] > 500:
         height_diff = im.size[0]-500
         percent_smaller = height_diff/(im.size[0]/100)
